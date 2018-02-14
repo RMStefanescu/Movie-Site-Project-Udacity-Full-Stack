@@ -25,6 +25,10 @@ main_page_head = '''
             width: 640px;
             height: 480px;
         }
+        #site_title {
+            color: orange;
+            font-size: 1.5em;
+        }
         .hanging-close {
             position: absolute;
             top: -12px;
@@ -55,6 +59,45 @@ main_page_head = '''
             left: 0;
             top: 0;
             background-color: white;
+        }
+        .subcontainer {
+            padding: 0;
+            text-align: center;
+            display: inline-block;
+            margin: 0 1em 1em 0;
+            position: relative;
+        }
+        #story_div {
+            font-style: italic;
+            width: 25em;
+            height: 3em;
+            overflow: auto;
+        }
+        span.rating-content {
+            background: rgba(1,1,1,0.5);
+            color: orange;
+            cursor: pointer;
+            display: table;
+            position: absolute;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            width: 220px;
+            height: 50px;
+            top: 150px;
+            left: 20.65%;
+            opacity: 0;
+        }
+        span.rating-content span {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .subcontainer:hover span.rating-content {
+            opacity: 1;
+        }
+        h5 {
+            font-weight: bold;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -107,13 +150,15 @@ main_page_content = '''
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Razvan's Top Movie Site</a>
+            <a class="navbar-brand" id="site_title" href="#">Razvan's Top Movie Site</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
-      {movie_tiles}
+        <div class="subcontainer">
+            {movie_tiles}
+        </div>
     </div>
   </body>
 </html>
@@ -124,7 +169,9 @@ main_page_content = '''
 movie_tile_content = '''
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="{trailer}" data-toggle="modal" data-target="#trailer">
     <img src="{poster}" width="220" height="342">
-    <h2>{title}</h2>
+    <span class="rating-content"><span><h4>Rating: {rating}</h4></span></span>
+    <h5>{title}</h5>
+    <div id="story_div"><span id="storyline">{story}<span></div>
 </div>
 '''
 
@@ -145,6 +192,8 @@ def create_movie_tiles_content(movies):
         content += movie_tile_content.format(
             title=movie.title,
             poster=movie.poster,
+            rating=movie.rating,
+            story=movie.storyline,
             trailer=trailer_youtube_id
         )
     return content

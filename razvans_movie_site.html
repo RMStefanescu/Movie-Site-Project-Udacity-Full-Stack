@@ -13,11 +13,16 @@
     <style type="text/css" media="screen">
         body {
             padding-top: 80px;
+            background-color: grey;
         }
         #trailer .modal-dialog {
             margin-top: 200px;
             width: 640px;
             height: 480px;
+        }
+        #site_title {
+            color: orange;
+            font-size: 1.5em;
         }
         .hanging-close {
             position: absolute;
@@ -49,6 +54,45 @@
             left: 0;
             top: 0;
             background-color: white;
+        }
+        .subcontainer {
+            padding: 0;
+            text-align: center;
+            display: inline-block;
+            margin: 0 1em 1em 0;
+            position: relative;
+        }
+        #story_div {
+            font-style: italic;
+            width: 25em;
+            height: 3em;
+            overflow: auto;
+        }
+        span.rating-content {
+            background: rgba(1,1,1,0.5);
+            color: orange;
+            cursor: pointer;
+            display: table;
+            position: absolute;
+            left: 0;
+            position: absolute;
+            text-align: center;
+            width: 220px;
+            height: 50px;
+            top: 150px;
+            left: 20.65%;
+            opacity: 0;
+        }
+        span.rating-content span {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .subcontainer:hover span.rating-content {
+            opacity: 1;
+        }
+        h5 {
+            font-weight: bold;
         }
     </style>
     <script type="text/javascript" charset="utf-8">
@@ -97,43 +141,57 @@
       <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">Razvan's Top Movie Site</a>
+            <a class="navbar-brand" id="site_title" href="#">Razvan's Top Movie Site</a>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
-      
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="z8h3LVb8cl8" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/original//1hdm3Axw9LjITbApvAXBbqO58zE.jpg" width="220" height="342">
-    <h2>The Godfather: Part III</h2>
-</div>
-
+        <div class="subcontainer">
+            
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fBNpSRtfIUA" data-toggle="modal" data-target="#trailer">
     <img src="https://image.tmdb.org/t/p/original//rPdtLWNsZmAtoZl9PK7S2wE3qiS.jpg" width="220" height="342">
-    <h2>The Godfather</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="V75dMMIW2B4" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/original//bxVxZb5O9OxCO0oRUNdCnpy9NST.jpg" width="220" height="342">
-    <h2>The Lord of the Rings: The Fellowship of the Ring</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="LbfMDwc4azU" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/original//5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg" width="220" height="342">
-    <h2>The Lord of the Rings: The Two Towers</h2>
-</div>
-
-<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="co9SNfJNDN8" data-toggle="modal" data-target="#trailer">
-    <img src="https://image.tmdb.org/t/p/original//rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" width="220" height="342">
-    <h2>The Lord of the Rings: The Return of the King</h2>
+    <span class="rating-content"><span><h4>Rating: 8.5</h4></span></span>
+    <h5>The Godfather</h5>
+    <div id="story_div"><span id="storyline">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.<span></div>
 </div>
 
 <div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="9O1Iy9od7-A" data-toggle="modal" data-target="#trailer">
     <img src="https://image.tmdb.org/t/p/original//tHbMIIF51rguMNSastqoQwR0sBs.jpg" width="220" height="342">
-    <h2>The Godfather: Part II</h2>
+    <span class="rating-content"><span><h4>Rating: 8.4</h4></span></span>
+    <h5>The Godfather: Part II</h5>
+    <div id="story_div"><span id="storyline">In the continuing saga of the Corleone crime family, a young Vito Corleone grows up in Sicily and in 1910s New York. In the 1950s, Michael Corleone attempts to expand the family business into Las Vegas, Hollywood and Cuba.<span></div>
 </div>
 
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="z8h3LVb8cl8" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/original//1hdm3Axw9LjITbApvAXBbqO58zE.jpg" width="220" height="342">
+    <span class="rating-content"><span><h4>Rating: 7.2</h4></span></span>
+    <h5>The Godfather: Part III</h5>
+    <div id="story_div"><span id="storyline">In the midst of trying to legitimize his business dealings in 1979 New York and Italy, aging mafia don, Michael Corleone seeks forgiveness for his sins while taking a young protege under his wing.<span></div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="V75dMMIW2B4" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/original//bxVxZb5O9OxCO0oRUNdCnpy9NST.jpg" width="220" height="342">
+    <span class="rating-content"><span><h4>Rating: 8.1</h4></span></span>
+    <h5>The Lord of the Rings: The Fellowship of the Ring</h5>
+    <div id="story_div"><span id="storyline">Young hobbit Frodo Baggins, after inheriting a mysterious ring from his uncle Bilbo, must leave his home in order to keep it from falling into the hands of its evil creator. Along the way, a fellowship is formed to protect the ringbearer and make sure that the ring arrives at its final destination: Mt. Doom, the only place where it can be destroyed.<span></div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="LbfMDwc4azU" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/original//5VTN0pR8gcqV3EPUHHfMGnJYN9L.jpg" width="220" height="342">
+    <span class="rating-content"><span><h4>Rating: 8.1</h4></span></span>
+    <h5>The Lord of the Rings: The Two Towers</h5>
+    <div id="story_div"><span id="storyline">Frodo and Sam are trekking to Mordor to destroy the One Ring of Power while Gimli, Legolas and Aragorn search for the orc-captured Merry and Pippin. All along, nefarious wizard Saruman awaits the Fellowship members at the Orthanc Tower in Isengard.<span></div>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="co9SNfJNDN8" data-toggle="modal" data-target="#trailer">
+    <img src="https://image.tmdb.org/t/p/original//rCzpDGLbOoPwLjy3OAm5NUPOTrC.jpg" width="220" height="342">
+    <span class="rating-content"><span><h4>Rating: 8.2</h4></span></span>
+    <h5>The Lord of the Rings: The Return of the King</h5>
+    <div id="story_div"><span id="storyline">Aragorn is revealed as the heir to the ancient kings as he, Gandalf and the other members of the broken fellowship struggle to save Gondor from Sauron's forces. Meanwhile, Frodo and Sam bring the ring closer to the heart of Mordor, the dark lord's realm.<span></div>
+</div>
+
+        </div>
     </div>
   </body>
 </html>
