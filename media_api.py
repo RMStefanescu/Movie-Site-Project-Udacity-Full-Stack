@@ -7,8 +7,10 @@ import json
 conn = http.client.HTTPConnection("api.themoviedb.org")
 
 payload = "{}"
+api_key = '623a7df325a12927fd613644a9eaa648'
+video = '/videos?api_key=' + api_key
 # API request for user movie list
-conn.request("GET", "/3/list/47228?language=en-US&api_key=623a7df325a12927fd613644a9eaa648", payload)
+conn.request("GET", "/3/list/47228?language=en-US&api_key=" + api_key, payload)
 
 # Store & read response in variable
 res = conn.getresponse()
@@ -31,7 +33,7 @@ for value in li:
     # Get list movie ID
     movie_id = li[counter]['id']
     # Request movie trailer info
-    conn.request("GET", "/3/movie/" + str(movie_id) + "/videos?api_key=623a7df325a12927fd613644a9eaa648")
+    conn.request('GET', '/3/movie/' + str(movie_id) + video)
     # Get & read response
     res = conn.getresponse()
     data = res.read()
@@ -42,7 +44,13 @@ for value in li:
     # Concatenate youtube link with API trailer ID
     trailer = 'https://www.youtube.com/watch?v=' + trailer_json
     # Append Movie class objects to movie_list
-    movie_list.append(entertainment_center_api.Movie(li[counter][title], li[counter][release], li[counter][story], li[counter][vote], "https://image.tmdb.org/t/p/original/" + li[counter][poster], trailer))
+    movie_list.append(entertainment_center_api.Movie(
+        li[counter][title],
+        li[counter][release],
+        li[counter][story],
+        li[counter][vote],
+        "https://image.tmdb.org/t/p/original/" + li[counter][poster],
+        trailer))
     counter += 1
 # Open movie list of objects in razvans_movie_site
 razvans_movie_site.open_movies_page(movie_list)

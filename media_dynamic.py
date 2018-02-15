@@ -8,7 +8,7 @@ with open("media_data.txt", "r") as file_input:
     for element in file_input:
         if element.startswith("M:"):
             # Adds movie elements to array after second character
-            media.append(element[1:])
+            media.append(element[2:])
 
 media_files = dict()
 # Creates movies list for storing the dictionary of movie objects
